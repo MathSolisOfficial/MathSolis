@@ -87,14 +87,3 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const logo = document.querySelector(".logo");
-
-    // Немного задержка перед выездом, чтобы эффект был красивый
-    setTimeout(() => {
-        logo.classList.add("show");
-    }, 300);
-});
-
