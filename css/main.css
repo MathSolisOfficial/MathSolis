@@ -21,7 +21,7 @@ img{
 }
 
 .wrapper{
-    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 0%, rgba(227, 227, 227, 1) 35%, rgba(201, 201, 201, 1) 70%, rgba(176, 176, 176, 1) 100%);
+    background: linear-gradient(180deg,rgb(255, 255, 255) 0%, rgb(239, 239, 239) 15%, rgb(224, 224, 224) 70%, rgb(216, 216, 216) 100%);
     width: 100%;
     position: relative; 
 }
@@ -90,7 +90,7 @@ header nav ul li:not(.active):not(.btn) a::after {
     bottom: -8px;                  
     width: 70%;
     height: 4px;
-    background: rgb(229, 180, 180);
+    background: #ffb289;
     border-radius: 4px;
 
     opacity: 0;
@@ -125,7 +125,7 @@ header nav ul li.btn a {
 }
 
 header nav ul li.btn a:hover {
-    background: rgb(242, 191, 191);
+    background: #ffb289;
 }
 
 .hero {
@@ -287,14 +287,6 @@ header nav ul li.btn a:hover {
     width: 14px;
     height: 14px;
     flex-shrink: 0;           /* иконка НЕ сжимается */
-}
-
-.big-text {
-    padding: 50px 0;
-    font-size: 35px;
-    font-weight: 600;
-    text-align: center;
-    width: 800px;
 }
 
 .banner {
@@ -486,7 +478,7 @@ header nav ul li.btn a:hover {
 /* ===== Футер с полукругом ===== */
 .footer {
     width: 100%;
-    height: 200px; 
+    height: 170px; 
     background-color: #111; 
     border-top-left-radius: 50% 100px;
     border-top-right-radius: 50% 100px;
@@ -639,4 +631,232 @@ header h1 .logo::after {
     border-bottom: 2px solid black;
     border-right: 2px solid black;
     border-bottom-right-radius: 15px;
+}
+
+.wave-divider {
+    width: 100%;
+    margin: 5px 0 40px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.wave-divider svg {
+    width: 90%;
+    height: 40px;
+}
+
+.purpose-intro {
+    margin-bottom: 25px;
+}
+
+.purpose-intro h3 {
+    font-size: 19px;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.purpose-intro h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #ffb289;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+.purpose-intro p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #252525;
+}
+
+.big-text {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #fdfdfd 0%, #f0f0f0 100%);
+    border-radius: 20px;
+    margin: 60px auto;
+    max-width: 900px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.big-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.big-text-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #2b2b2b;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.big-text-subtitle {
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: #444;
+}
+
+.big-text-btn {
+    background: rgb(82, 82, 82);
+    color: rgb(232, 222, 222);
+    border-radius: 50px;
+    padding: 7px 20px;   /* Точно как hero */
+    font-size: 1rem;
+    border: 0;
+    cursor: pointer;
+    transition: all 500ms ease;
+    font-family: "Poppins", sans-serif;
+}
+
+.big-text-btn:hover {
+    transform: scale(1.1);
+    color: black;
+    background: rgb(255, 255, 255);
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* ===== Адаптив для планшетов (768px и меньше) ===== */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%; /* чтобы контейнер не был слишком широким */
+    }
+
+    .hero--info {
+        width: 100%;
+        transform: translateX(0);
+        padding-top: 40px;
+    }
+
+    #heroImg {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 80%;
+        margin: 20px auto 0;
+    }
+
+    .banner {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 50px 0;
+    }
+
+    .banner-text {
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .purpose {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 0;
+    }
+
+    .purpose-image img {
+        max-width: 80%;
+    }
+
+    .trending .games {
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px 20px;
+    }
+
+    .big-text {
+        padding: 60px 15px;
+        max-width: 95%;
+    }
+
+    .big-text-title {
+        font-size: 2rem;
+    }
+
+    .big-text-subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .big-text-btn {
+        padding: 7px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Адаптив для телефонов (480px и меньше) ===== */
+@media (max-width: 480px) {
+    header nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #heroImg {
+        width: 95%;
+    }
+
+    .hero--info h1 {
+        font-size: 28px;
+    }
+
+    .hero--info h2 {
+        font-size: 14px;
+    }
+
+    .hero--info p {
+        font-size: 14px;
+    }
+
+    .banner-text h3 {
+        font-size: 24px;
+    }
+
+    .banner-text p {
+        font-size: 14px;
+    }
+
+    .big-text-title {
+        font-size: 1.8rem;
+    }
+
+    .big-text-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .purpose-text h2 {
+        font-size: 22px;
+    }
+
+    .purpose-text p, .purpose-text li {
+        font-size: 14px;
+    }
+
+    .trending .block span {
+        font-size: 12px;
+    }
+
+    .trending .block .card-img {
+        width: 90%;
+    }
 }

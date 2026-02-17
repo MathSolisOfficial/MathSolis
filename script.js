@@ -87,3 +87,16 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+
+const bigText = document.querySelector('.big-text');
+
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.8;
+
+    const bigTextTop = bigText.getBoundingClientRect().top;
+
+    if(bigTextTop < triggerBottom) {
+        bigText.classList.add('show');
+    }
+});
