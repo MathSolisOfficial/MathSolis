@@ -758,74 +758,89 @@ header h1 .logo::after {
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/* Мобильная адаптация под 1080x2340 и меньше экранов */
+/* ======================== */
+/* Адаптив под телефоны и планшеты */
 @media (max-width: 1440px) {
     .container {
-        width: 95%;      /* растягиваем под экран, чтобы не было горизонтального скролла */
-        max-width: 1400px; /* на больших экранах ограничение */
+        width: 95%;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
-    /* Герой-блок */
-    .hero--info {
-        width: 90%;      /* чуть меньше, чтобы не упёрлось */
-        transform: translateX(0); /* убираем смещение вправо */
-        padding-top: 40px;
+    /* Hero */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        padding: 20px 0;
+    }
+
+    .hero--info {
+        width: 90%;
+        transform: translateX(0);
     }
 
     #heroImg {
-        position: relative;  /* больше не абсолют */
-        left: 0;
-        top: 0;
-        width: 60%;          /* подстраиваем под ширину экрана */
+        position: relative;  /* убираем absolute */
+        width: 70%;          /* автоматически подстраивается */
+        max-width: 350px;    /* не больше ПК версии */
         margin: 20px auto 0 auto;
     }
 
     /* Баннер */
     .banner {
-        flex-direction: column; /* картинка сверху, текст снизу */
+        flex-direction: column;
+        align-items: center;
         gap: 30px;
         padding: 50px 0;
     }
 
     .banner-image img {
-        width: 80%;  /* картинка не выходит за экран */
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .banner-text-frame {
+        padding: 20px;
+        max-width: 90%;
     }
 
     .banner-text {
         text-align: center;
-        max-width: 90%;
-        margin: 0 auto;
     }
 
-    /* Purpose блок */
+    /* Purpose */
     .purpose {
         flex-direction: column;
         gap: 30px;
-        padding: 30px 10px;
+        padding: 30px 0;
     }
 
     .purpose-image img {
         width: 70%;
-        max-width: 350px;
+        max-width: 360px;
+    }
+
+    .purpose-text {
+        max-width: 90%;
+        text-align: center;
     }
 
     /* Trending */
     .trending .games {
         flex-direction: column;
         gap: 20px;
-        padding: 30px 10px;
+        padding: 30px 0;
     }
 
     .trending .block span {
         width: 100%;
     }
 
-    /* Кнопки */
-    .hero--info .btn,
-    .big-text-btn {
-        width: 60%;
-        font-size: 1rem;
+    .trending .block .card-img {
+        width: 100%;
+        max-width: 300px;
     }
 
     /* Big-text */
@@ -841,5 +856,29 @@ header h1 .logo::after {
 
     .big-text-subtitle {
         font-size: 1rem;
+    }
+
+    .hero--info .btn,
+    .big-text-btn {
+        width: 70%;
+        font-size: 1rem;
+    }
+
+    /* Header nav */
+    header nav {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+        top: 0;
+    }
+
+    header nav ul li.btn a {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
     }
 }
