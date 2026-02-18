@@ -100,3 +100,17 @@ window.addEventListener('scroll', () => {
         bigText.classList.add('show');
     }
 });
+
+
+const ctaButton = document.querySelector('.cta-theory');
+const theoryNav = document.querySelector('.nav-theory');
+
+if (ctaButton && theoryNav) {
+    ctaButton.addEventListener('mouseenter', () => {
+        theoryNav.classList.add('highlight');
+    });
+
+    ctaButton.addEventListener('mouseleave', () => {
+        theoryNav.classList.remove('highlight');
+    });
+}
