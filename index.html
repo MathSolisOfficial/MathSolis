@@ -16,11 +16,11 @@
             <nav>
                 <ul>
                     <li class="active"><a href="#">Sākums</a></li>
-                    <li class="nav-theory"><a href="#">Teorija</a></li>
+                    <li class="nav-theory"><a href="#" onclick="openTheory()">Teorija</a></li>
                     <li><a href="#">Uzdevumi</a></li>
                     <li><a href="#">Biežākās kļūdas</a></li>
                     <li><a href="#">Citi risinājumi</a></li>
-                    <li class="btn"><a href="#">Kontakti</a></li>
+                    <li class="btn"><a href="#">Testi</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,7 +31,7 @@
                 <h2 style="text-align: center;">MathSolis - solis pretī matemātikas izpratnei</h2>
                 <p>Šī mājaslapa ir izveidota kā 12. klases matemātikas projektu darbs. Projekta mērķis ir palīdzēt skolēniem labāk izprast sarežģītas matemātikas tēmas un mācīties patstāvīgi.</p>
                 <p>MathSolis ir izglītojoša mājaslapa, kas palīdz skolēniem saprast matemātiku skaidri, loģiski un soli pa solim. Šeit tu atradīsi teoriju, uzdevumus un piemērus par tēmu attiecības un proporcijas.</p>
-                <button class="btn cta-theory">apskatīt teoriju</button>
+                <button class="btn cta-theory" onclick="openTheory()">apskatīt teoriju</button>
             </div>
             <img src="img/111.png" alt="" id="heroImg">
         </div>
@@ -140,6 +140,19 @@
                         <p>Adrese: Rīga, Latvija</p>
                     </div>
             </footer>
+        </div>
+    </div>
+    <div class="theory-overlay" id="theoryMenu">
+        <div class="theory-menu">
+            <h2>Izvēlies tēmu</h2>
+            <ul>
+                <li><a href="skaitlu-attieciba.html">Skaitļu attiecība</a></li>
+                <li><a href="prop-definicija.html">Proporcijas definīcija un pamatīpašība</a></li>
+                <li><a href="prop-nezinamais.html">Proporcijas nezināmā locekļa aprēķināšana</a></li>
+                <li><a href="prop-procenti.html">Proporciju izmantošana procentu uzdevumos</a></li>
+                <li><a href="sakaribas.html">Sakarības starp lielumiem</a></li>
+            </ul>
+            <a href="#" class="btn" onclick="closeTheory(); return false;">Aizvērt</a>
         </div>
     </div>
     <script src="script.js"></script>

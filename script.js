@@ -114,3 +114,40 @@ if (ctaButton && theoryNav) {
         theoryNav.classList.remove('highlight');
     });
 }
+
+
+// ==================== ФУНКЦИИ ====================
+// ссылки
+const theoryOverlay = document.getElementById('theoryMenu');
+const theoryMenu = document.querySelector('.theory-menu');
+
+// открыть
+function openTheory() {
+    theoryOverlay.classList.add('active');
+}
+
+// закрыть
+function closeTheory() {
+    theoryOverlay.classList.remove('active');
+}
+
+// клик вне меню
+theoryOverlay.addEventListener('click', (e) => {
+    if (!theoryMenu.contains(e.target)) {
+        closeTheory();
+    }
+});
+
+// кнопка закрытия
+const closeBtn = theoryMenu.querySelector('.btn');
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeTheory();
+});
+
+// закрытие по ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeTheory();
+    }
+});
