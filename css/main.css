@@ -135,27 +135,31 @@ header .container {
 }
 
 .hero {
+    display: flex;
+    justify-content: center;
     padding-bottom: 40px;
     display: flex;
     align-items: center;
     padding-bottom: 40px;
     z-index: 1;
-    gap: 120px;
+    gap: 14%;
+    position: relative;
 }
 
 .hero--info {
-    width: 530px;
+    max-width: 600px;
     padding-top: 70px;
+    text-align: left;
 }
 
 .hero--info h2 {
     
-    font-size: 17px;
+    font-size: clamp(16px, 2.5vw, 17px);
     font-weight: 600;
 }
 
 .hero--info h1 {
-    font-size: 37px;
+    font-size: clamp(28px, 3vw, 37px);
     font-weight: 600;
     color: rgb(45, 45, 45);
 }
@@ -163,7 +167,7 @@ header .container {
 .hero--info p {
     font-weight: 500;
     line-height: 1.6;
-    margin: 0 0 10px 0;
+    margin: 30px 0 15px;
 }
 
 .hero--info .btn {
@@ -172,7 +176,7 @@ header .container {
     border-radius: 50px;
     padding: 7px 25px;
     border: 0;
-    transition: all 500ms ease;
+    transition: all 0.5s ease;
     font-family: "Poppins", sans-serif;
 }
 
@@ -206,7 +210,7 @@ header .container {
     font-weight: 600;
     font-size: 25px;
     text-align: center;
-    margin-bottom: -20px;
+    margin-bottom: 20px;
 }
 
 .trending .see-all {
@@ -226,8 +230,9 @@ header .container {
 .trending .games {
     display: flex;
     justify-content: center;
-    padding: 70px 50px;
-    gap: 40px;
+    padding: 50px 0;
+    gap: 2%;
+    flex-wrap: wrap;
 }
 
 .trending .games span {
@@ -244,6 +249,15 @@ header .container {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 
     transition: all 0.3s ease;
+}
+
+.trending .block {
+    flex: 1 1 22%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .trending .block .card-img:hover {
@@ -275,16 +289,15 @@ header .container {
 .banner {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 50px;
-
+    justify-content: space-between;
+    gap: 3%;
     padding: 80px 0;
 }
 
 .banner-image img {
-    width: 500px;                 /* МЕНЬШЕ, ЧЕМ 100% */
+    width: 100%;
+    max-width: 500px;                 /* МЕНЬШЕ, ЧЕМ 100% */
     border-radius: 18px;          /* мягкие углы */
-    
     transition: transform 1.5s ease;
 }
 
@@ -299,7 +312,7 @@ header .container {
 }
 
 .banner-text h3 {
-    font-size: 32px;
+    font-size: clamp(28px, 3vw, 32px);
     font-weight: 600;
     margin-bottom: 20px;
     white-space: nowrap;        /* запрещаем перенос */
@@ -307,11 +320,11 @@ header .container {
 }
 
 .banner-text p {
-    line-height: 175%;
+    line-height: 1.75;
     text-align: center;
     max-width: 520px;
     margin: 0 auto;
-    font-size: 17px; 
+    font-size: clamp(16px, 1.5vw, 17px);
 }
 
 #bannerImg {
@@ -326,8 +339,10 @@ header .container {
 #heroImg {
     transform: scale(1);    /* начальный масштаб — максимальный */
     transition: transform 0.1s linear; /* плавное реагирование на scroll */
-    width: 350px;
+    width: 30%;
+    max-width: 400px;
     height: auto;
+    display: block;
     margin-left: 270px;
 }
 
@@ -358,7 +373,7 @@ header .container {
 }
 
 .purpose-text h2 {
-    font-size: 28px;
+    font-size: clamp(24px, 2.8vw, 28px);
     font-weight: 600;
     margin-bottom: 18px;
 
@@ -673,7 +688,7 @@ header h1 .logo::after {
 }
 
 .big-text-title {
-    font-size: 2.5rem;
+    font-size: clamp(28px, 3vw, 2.5rem);
     font-weight: 800;
     margin-bottom: 25px;
     color: #2b2b2b;
@@ -682,6 +697,7 @@ header h1 .logo::after {
 }
 
 .big-text-subtitle {
+    font-size: clamp(16px, 2vw, 18px);
     font-weight: 500;
     line-height: 1.8;
     margin-bottom: 40px;
@@ -876,47 +892,175 @@ header h1 .logo::after {
 }
 
 
+/* ===== UNIVERSAL TEXT CLAMP ===== */
+.hero--info h1, .banner-text h3, .big-text-title, .purpose-text h2 {
+    line-height: 1.3;
+}
+
+.hero--info h2, .banner-text p, .big-text-subtitle {
+    line-height: 1.5;
+}
+
+
 
 /* ================== RESPONSIVE ================== */
 
-@media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
+/* ===== АДАПТИВКА ДЛЯ ЭКРАНОВ ===== */
+
+/* Малые экраны, телефоны */
+@media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
     }
 
+    /* Hero */
     .hero--info {
-        transform: none;
-        max-width: 100%;
+        width: 100%;
+        padding-top: 30px;
+        transform: translateX(0);
+        text-align: center;
     }
 
     #heroImg {
-        width: 250px;
-        margin-top: 20px;
+        position: relative;
+        width: 80%;
+        top: 0;
+        left: 0;
+        margin: 20px auto 0;
     }
 
+    /* Banner */
     .banner {
         flex-direction: column;
+        gap: 20px;
         text-align: center;
     }
 
-    .purpose {
-        flex-direction: column;
-        text-align: center;
+    .banner-image img {
+        width: 90%;
+        max-width: 400px;
     }
 
+    .banner-text-frame {
+        max-width: 100%;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .banner-text {
+        text-align: center;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .banner-text h3 {
+        font-size: clamp(20px, 4vw, 28px);
+    }
+
+    .banner-text p {
+        font-size: clamp(14px, 3.5vw, 17px);
+    }
+
+    /* Trending */
     .trending .games {
         flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .trending .block {
+        width: calc(50% - 20px);
+        max-width: 250px;
+    }
+
+    .trending .block .card-img {
+        width: 100%;
     }
 }
 
-@media (max-width: 600px) {
-    header nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
+/* Средние экраны, планшеты */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .container {
+        width: 95%;
     }
 
-    .big-text-title {
-        font-size: 1.8rem;
+    .hero--info {
+        width: 70%;
+        transform: translateX(0);
     }
+
+    #heroImg {
+        width: 300px;
+        left: auto;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 0;
+    }
+
+    .banner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .banner-image img {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .banner-text-frame {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .trending .block {
+        width: calc(33% - 25px);
+        max-width: 300px;
+    }
+}
+
+/* Большие экраны, телевизоры */
+@media (min-width: 1600px) {
+
+    .container {
+        width: 1400px;
+    }
+
+    #heroImg {
+        width: 350px;
+    }
+
+    .banner-image img {
+        width: 500px;
+    }
+
+    .trending .block {
+        width: calc(25% - 30px);
+    }
+}
+
+/* Универсальные размеры текста с clamp */
+.hero--info h1 {
+    font-size: clamp(28px, 3vw, 37px);
+}
+
+.hero--info h2 {
+    font-size: clamp(16px, 2.5vw, 17px);
+}
+
+.purpose-text h2 {
+    font-size: clamp(24px, 2.8vw, 28px);
+}
+
+.big-text-title {
+    font-size: clamp(28px, 3vw, 2.5rem);
+}
+
+.big-text-subtitle {
+    font-size: clamp(16px, 2vw, 18px);
 }
