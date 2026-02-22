@@ -339,8 +339,67 @@ img{
 }
 
 .section-navigation.first-page::before {
-    left: 18px;
+    left: 75px;
+    right: 250px;
 }
+.section-navigation.first-page .nav-btn.next {
+    margin-right: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.first-page::before {
+    margin-right: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.def-page .nav-btn.next {
+    margin-right: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.def-page .nav-btn.back {
+    margin-left: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.def-page::before {
+    left: 285px;
+    right: 293px;
+}
+
+.section-navigation.pas-page .nav-btn.next {
+    margin-right: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.pas-page .nav-btn.back {
+    margin-left: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.pas-page::before {
+    left: 285px;
+    right: 293px;
+}
+
+.section-navigation.org-page .nav-btn.next {
+    margin-right: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.org-page .nav-btn.back {
+    margin-left: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.org-page::before {
+    left: 285px;
+    right: 293px;
+}
+
+.section-navigation.red-page .nav-btn.back {
+    margin-left: 45px; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.red-page::before {
+    left: 285px;
+    right: 245px !important;
+}
+
+
+
 
 .section-navigation.last-page::before {
     right: 18px;
@@ -428,20 +487,507 @@ img{
     background: #ff919179; /* лёгкий эффект при наведении */
 }
 
+.uzdevumi-page .frame-buttons.left .frame-btn.top-btn {
+    margin-left: 0;
+}
+
+.uzdevumi-page .frame-buttons {
+    align-items: center;
+}
+
+.uzdevumi-page .frame-buttons.left {
+    left: -250px !important;
+}
+
 .uzdevumi-page .frame-buttons.right {
-    right: -200px;   /* двигай + или - */
+    right: -250px !important; 
 }
 
-.uzdevumi-page .frame-buttons.right .side-image {
-    transform: translateX(26px);
+.uzdevumi-page .frame-buttons .frame-btn {
+    width: 180px !important;
 }
 
-.uzdevumi-page .frame-buttons.right .dropdown-content {
-    right: -28px;
-    left: auto;
+.uzdevumi-page .dropdown {
+    position: relative;
 }
 
-.uzdevumi-page .frame-btn {
-    min-width: 140px;
-    padding: 6px 20px;
+.uzdevumi-page .dropdown-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-100%);
+}
+
+.uzdevumi-page .top-frame {
+    width: 55%;      /* было 65% */
+    max-width: 750px;
+}
+
+.uzdevumi-page .side-image {
+    width: 206px;
+}
+
+.uzdevumi-page .dropdown-content {
+    width: 206px;
+}
+
+.uzdevumi-page .side-image{
+    height: 70px;
+}
+
+.uzdevumi-page .wrapper::before {
+    left: 100px;
+    right: 100px;
+}
+
+.uzdevumi-page .dropdown-content a{
+    font-size: 10px;
+}
+
+
+
+
+
+/* =============================== */
+/* Теория на странице Skaitļu attiecība */
+/* =============================== */
+
+.skait-page .theory-content {
+    width: 100%;
+    max-width: 900px; /* чуть пошире */
+    margin: 0 auto 70px auto; /* больше отступ снизу перед wrapper */
+    padding: 25px 30px; /* чуть больше внутреннего отступа */
+    font-size: 17px; /* немного увеличили текст */
+    line-height: 1.7;
+    color: rgb(50,50,50);
+    margin-bottom: 40px;
+}
+
+.skait-page .theory-content h1.theory-title {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgb(35,35,35);
+}
+
+.skait-page .theory-content p {
+    margin-bottom: 20px;
+}
+
+.skait-page .theory-content ul {
+    margin: 18px 0 25px 30px;
+    list-style: disc;
+}
+
+.skait-page .theory-content ul li {
+    margin-bottom: 12px;
+}
+
+.skait-page .highlight-green {
+    color: rgb(27, 71, 45);
+    font-weight: 600;
+    font-size: 1.06em;
+}
+
+.skait-page .formula {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    text-align: center;
+    margin: 18px 0;
+    padding: 10px 0;
+    background: rgba(46, 125, 89, 0.177);
+    border-left: 4px solid rgb(27, 71, 45);
+    border-radius: 5px;
+}
+
+.skait-page .formula .fraction {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.skait-page .definition-box {
+    border: 2px solid rgb(46, 125, 90);
+    background: rgba(46, 125, 90, 0.05);
+    padding: 18px 22px;
+    margin: 30px 0;
+    border-radius: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.skait-page .example-box {
+    background: rgba(200, 200, 200, 0.15);
+    border-left: 4px solid rgb(120,120,120);
+    padding: 18px 22px;
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+.skait-page .example-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.skait-page .theory-image {
+    text-align: center;
+    margin: 22px 0;
+}
+
+.skait-page .theory-image img {
+    max-width:65%; /* чуть пошире */
+    height: auto;
+    border-radius: 10px;
+}
+
+.skait-page .theory-image .image-caption {
+    font-size: 15px;
+    color: rgb(70,70,70);
+    margin-top: 6px;
+}
+
+.skait-page .theory-content strong {
+    font-weight: 600;
+    color: rgb(35,35,35);
+}
+
+.skait-page .theory-content li span.highlight-green {
+    font-weight: 600;
+}
+
+.skait-page .theory-content .example-box p {
+    margin-bottom: 12px;
+}
+
+.skait-page .theory-content {
+    padding: 80px; /* увеличивает расстояние до рамки wrapper */
+}
+
+
+.fraction {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.fraction .top {
+    display: block;
+    border-bottom: 2px solid black;
+    padding: 0 3px;
+}
+
+.fraction .bottom {
+    display: block;
+    padding: 0 3px;
+}
+
+
+/* =============================== */
+/* Теория на странице Proporcija */
+/* =============================== */
+
+.second-page .theory-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 70px auto;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgb(50,50,50);
+}
+
+.second-page .theory-content p {
+    margin-bottom: 20px;
+}
+
+.second-page .theory-content ul {
+    margin: 18px 0 25px 30px;
+    list-style: disc;
+}
+
+.second-page .theory-content ul li {
+    margin-bottom: 12px;
+}
+
+.second-page .highlight-green {
+    color: rgb(27, 71, 45);
+    font-weight: 600;
+    font-size: 1.06em;
+}
+
+.second-page .formula {
+    font-weight: 600;
+    font-size: 19px;
+    text-align: center;
+    margin: 18px 0;
+    padding: 10px 0;
+    background: rgba(46, 125, 89, 0.177);
+    border-left: 4px solid rgb(27, 71, 45);
+    border-radius: 5px;
+}
+
+.second-page .definition-box {
+    border: 2px solid rgb(46, 125, 90);
+    background: rgba(46, 125, 90, 0.05);
+    padding: 18px 22px;
+    margin: 30px 0;
+    border-radius: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.second-page .example-box {
+    background: rgba(200, 200, 200, 0.15);
+    border-left: 4px solid rgb(120,120,120);
+    padding: 18px 22px;
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+.second-page .example-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.second-page .theory-image {
+    text-align: center;
+    margin: 22px 0;
+}
+
+.second-page .theory-image img {
+    max-width: 25%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.second-page .theory-image .image-caption {
+    font-size: 15px;
+    color: rgb(70,70,70);
+    margin-top: 6px;
+}
+
+.second-page .theory-content strong {
+    font-weight: 600;
+    color: rgb(35,35,35);
+}
+
+/* =============================== */
+/* Теория третьей темы */
+/* =============================== */
+
+.two-page .theory-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 70px auto;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgb(50,50,50);
+}
+
+.two-page .theory-content p {
+    margin-bottom: 20px;
+}
+
+.two-page .highlight-green {
+    color: rgb(27, 71, 45);
+    font-weight: 600;
+}
+
+.two-page .formula {
+    font-weight: 600;
+    font-size: 19px;
+    text-align: center;
+    margin: 18px 0;
+    padding: 12px 0;
+    background: rgba(46, 125, 89, 0.15);
+    border-left: 4px solid rgb(27, 71, 45);
+    border-radius: 6px;
+}
+
+.two-page .definition-box {
+    border: 2px solid rgb(46, 125, 90);
+    background: rgba(46, 125, 90, 0.06);
+    padding: 20px 24px;
+    margin: 30px 0;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.two-page .example-box {
+    background: rgba(180, 180, 180, 0.12);
+    border-left: 4px solid rgb(120,120,120);
+    padding: 20px 24px;
+    margin: 35px 0;
+    border-radius: 12px;
+}
+
+.two-page .example-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.two-page h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: rgb(35,35,35);
+}
+
+
+/* =============================== */
+/* 4 тема — Procenti */
+/* =============================== */
+
+.four-page .theory-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 70px auto;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgb(50,50,50);
+}
+
+.four-page .theory-content p {
+    margin-bottom: 20px;
+}
+
+.four-page .formula {
+    font-weight: 600;
+    font-size: 19px;
+    text-align: center;
+    margin: 18px 0;
+    padding: 12px 0;
+    background: rgba(46, 125, 89, 0.15);
+    border-left: 4px solid rgb(27, 71, 45);
+    border-radius: 6px;
+}
+
+.four-page .definition-box {
+    border: 2px solid rgb(46, 125, 90);
+    background: rgba(46, 125, 90, 0.06);
+    padding: 20px 24px;
+    margin: 30px 0;
+    border-radius: 12px;
+}
+
+.four-page .example-box {
+    background: rgba(180, 180, 180, 0.12);
+    border-left: 4px solid rgb(120,120,120);
+    padding: 20px 24px;
+    margin: 35px 0;
+    border-radius: 12px;
+}
+
+.four-page .answer-box {
+    border: 2px solid rgb(27, 125, 60);
+    background: rgba(27, 125, 60, 0.08);
+    padding: 18px;
+    margin: 20px 0 40px 0;
+    border-radius: 12px;
+    font-weight: 600;
+    color: rgb(27, 100, 50);
+}
+
+.four-page .important-text {
+    font-weight: 700;
+    color: rgb(27, 100, 50);
+    margin: 25px 0;
+}
+
+.four-page h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+
+/* =============================== */
+/* 5 тема — Lielumi */
+/* =============================== */
+
+.red-page .theory-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 70px auto;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgb(50,50,50);
+}
+
+.red-page .theory-content p {
+    margin-bottom: 20px;
+}
+
+.red-page h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.red-page .highlight-green {
+    color: rgb(27, 71, 45);
+}
+
+.red-page .definition-box {
+    border: 2px solid rgb(46, 125, 90);
+    background: rgba(46, 125, 90, 0.06);
+    padding: 20px 24px;
+    margin: 30px 0;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.red-page .concept-box {
+    background: rgba(46, 125, 90, 0.08);
+    padding: 18px;
+    margin: 25px 0;
+    border-radius: 10px;
+}
+
+.red-page .example-box {
+    background: rgba(180, 180, 180, 0.12);
+    border-left: 4px solid rgb(120,120,120);
+    padding: 20px 24px;
+    margin: 35px 0;
+    border-radius: 12px;
+}
+
+.red-page .example-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.red-page .formula {
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    margin: 18px 0;
+    padding: 10px 0;
+    background: rgba(200, 0, 0, 0.08);
+    border-left: 4px solid rgb(150, 0, 0);
+    border-radius: 6px;
+}
+
+.red-page .answer-box {
+    border: 2px solid rgb(27, 125, 60);
+    background: rgba(27, 125, 60, 0.08);
+    padding: 18px;
+    margin: 20px 0 40px 0;
+    border-radius: 12px;
+    font-weight: 600;
+    color: rgb(27, 100, 50);
+}
+
+.red-page .summary-box {
+    border: 2px solid rgb(150, 0, 0);
+    background: rgba(200, 0, 0, 0.05);
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 12px;
 }
