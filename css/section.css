@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,800;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color:rgb(0, 0, 0);
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+.wrapper{
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+    width: 100%;
+    position: relative; 
+}
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: 18px;       /* отступ сверху */
+    left: 50px;      /* отступ слева */
+    right: 50px;     /* отступ справа */
+    bottom: auto;     /* не тянем вниз до футера */
+    height: calc(100% - 30px); /* высота wrapper минус высота футера */
+    border: 1px solid #111; 
+    border-radius: 15px;
+    pointer-events: none;
+    box-shadow: 0 0 20px #11111199; 
+    z-index: 1;
+}
+
+.container {
+    max-width: 1400px;
+    width: 92%;
+    margin: 0 auto;
+}
+
+
+.section-navigation {
+    position: relative;
+    margin-top: 30px;  
+    bottom: 35px;
+    left: 50%;              /* центрируем контейнер */
+    transform: translateX(-50%); /* сдвигаем по центру */
+    width: 100%;             /* почти вся ширина страницы */
+    display: flex;
+    justify-content: space-between; /* кнопки по краям */
+    z-index: 10;
+    max-width: 1430px;      /* чтобы не растягивались слишком сильно */
+    padding: 0 20px;        /* небольшой отступ от краёв */
+}
+
+.nav-btn {
+    display: inline-block;
+    background: rgb(46, 46, 46);
+    color: rgb(246, 246, 246);
+    border-radius: 10px;
+    border: 1px solid rgba(46,46,46,0.6);
+    padding: 6px 10px;       /* чуть больше, чтобы текст помещался */
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    width: 160px;             /* фиксированная ширина, одинаковая для всех кнопок */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(58, 41, 31, 0.645);
+}
+
+/* Ховер эффект */
+.nav-btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* Дополнительно можно сделать стрелки чуть крупнее */
+.nav-btn.back::before {
+    content: '← ';
+    font-weight: bold;
+}
+
+.nav-btn.next::after {
+    content: ' →';
+    font-weight: bold;
+}
+
+/* рамка как у wrapper */
+.top-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #111;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #11111199;
+    pointer-events: none;
+}
+
+.top-frame h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 26px;
+    font-weight: 600;
+    color: rgb(35,35,35);
+}
+
+.topic-description {
+    margin-top: 20px;
+    margin: 20px auto 0 auto;
+    max-width: 75%;   /* текст уже */
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgb(70,70,70);
+}
+
+.top-frame h2 {
+    position: relative;   /* обязательно для псевдоэлементов */
+    display: inline-block; /* чтобы уголки обнимали текст */
+    z-index: 2;
+    font-size: 26px;
+    font-weight: 600;
+    color: rgb(35,35,35);
+    padding: 0 10px;    /* немного воздуха вокруг текста */
+}
+
+/* Левый верхний угол */
+.top-frame h2::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid rgba(0,0,0,0.6);
+    border-left: 2px solid rgba(0,0,0,0.6);
+    border-top-left-radius: 15px;
+    pointer-events: none;
+}
+
+/* Правый нижний угол */
+.top-frame h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    border-right: 2px solid rgba(0,0,0,0.6);
+    border-bottom-right-radius: 15px;
+    pointer-events: none;
+}
+
+.highlight {
+    color: rgb(27, 71, 45);      /* мягкий зелёный, не кислотный */
+    font-weight: 600;
+    font-size: 1.05em;            /* чуть-чуть больше */
+    text-shadow: 0 0 3px rgba(46,125,90,0.2);
+}
+
+
+
+/* Стиль кнопок внутри рамки */
+.frame-btn {
+    display: inline-block;
+    padding: 5px 12px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px; /* чуть меньше */
+    font-weight: 500;
+    color: rgb(46,46,46); /* тёмный цвет текста */
+    background: transparent; /* прозрачный фон */
+    border: 1px solid rgb(46,46,46); /* тонкая обводка */
+    border-radius: 10px; /* слегка закруглённые углы */
+    text-align: center;
+    text-decoration: none;
+    width: 160px; /* одинаковая ширина */
+    transition: all 0.3s ease;
+}
+
+/* Ховер эффект */
+.frame-btn:hover {
+    cursor: pointer;
+    background: #ffd1c189; /* лёгкий эффект при наведении */
+    transform: scale(1.05);
+    color: #482f21; /* приятный зелёный оттенок при наведении */
+}
+
+/* Чтобы рамка top-frame была по центру и оставалось место для кнопок */
+.top-frame {
+    position: relative;
+    width: 65%;  
+    max-width: 900px;
+    margin: 60px auto 40px auto;
+    padding: 25px 40px;  
+    text-align: center;
+}
+
+/* Контейнер кнопки + блок */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+/* Кнопка Teorija */
+.dropdown-toggle {
+    width: 160px;
+    padding: 5px 12px;
+    font-size: 14px;
+    border: 1px solid rgb(46,46,46);
+    border-radius: 10px;
+    background: transparent;
+    color: rgb(46,46,46);
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover эффект */
+.dropdown-toggle:hover {
+    background: #ffd1c189;
+    color: rgb(27,71,45);
+    cursor: pointer;
+}
+
+/* Блок с темами, скрыт изначально */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0; /* выезжает на место кнопки */
+    left: 0;
+    width: 190px; /* равна кнопке */
+    background: transparent;
+    border: 1px solid rgb(46,46,46);
+    border-radius: 10px;
+    padding: 5px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Ссылки внутри блока */
+.dropdown-content a {
+    display: block;
+    padding: 5px 10px;
+    font-size: 11px;
+    color: rgb(46,46,46);
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background: #ffd1c182;
+    color: rgb(46,46,46);
+}
+
+/* Активный dropdown показывает блок и скрывает кнопку */
+.dropdown.active .dropdown-toggle {
+    display: none;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Выровнять кнопки по верхней границе рамки top-frame */
+.frame-buttons {
+    position: absolute;
+    top: 10px; /* чуть выше, чем раньше */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 3;
+}
+
+/* Левая позиция */
+.frame-buttons.left {
+    left: -225px;
+}
+
+/* Правая позиция */
+.frame-buttons.right {
+    right: -225px;
+}
+
+.frame-buttons.left .frame-btn.top-btn {
+    margin-left: 50px; /* сдвигаем вправо, подбираешь значение под свой дизайн */
+}
+
+.frame-buttons.left .frame-btn.top-btn,
+.frame-buttons.right .frame-btn:first-child {
+    width: 110px;
+}
+
+
+/* Декоративные картинки под кнопками */
+.side-image {
+    width: 186px; /* равна ширине кнопок */
+    border-radius: 10px;
+    margin-top: 1px;
+    object-fit: cover;
+    height: 50px; /* можешь менять высоту */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+/* Лёгкий эффект при наведении */
+.side-image:hover {
+    transform: scale(1.01);
+}
+
+.dropdown.active + .side-image {
+    display: none;
+}
+
+.section-navigation::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* по центру по вертикали между кнопками */
+    left: 220px; /* отступ от края */
+    right: 220px; /* отступ от края */
+    height: 10px; /* очень тонкая */
+    background: linear-gradient(90deg, rgba(255, 178, 137, 0.479), rgba(46,46,46,0.05), rgba(255, 178, 137, 0.479));
+    border-radius: 1px;
+    z-index: 0; /* чтобы кнопки были сверху */
+    border-radius: 15px;
+    margin-top: -5px;
+}
+
+.section-navigation.first-page::before {
+    left: 18px;
+}
+
+.section-navigation.last-page::before {
+    right: 18px;
+}
+
+.section-navigation.def-page::before {
+    background: linear-gradient(90deg, rgba(137, 163, 255, 0.479), rgba(46, 46, 46, 0.05), rgba(137, 163, 255, 0.479));
+}
+
+.section-navigation.pas-page::before {
+    background: linear-gradient(90deg, rgba(198, 137, 255, 0.479), rgba(46, 46, 46, 0.05), rgba(198, 137, 255, 0.479));
+}
+
+.section-navigation.org-page::before {
+    background: linear-gradient(90deg, rgba(255, 247, 137, 0.479), rgba(46, 46, 46, 0.05), rgba(255, 247, 137, 0.479));
+}
+
+.section-navigation.red-page::before {
+    background: linear-gradient(90deg, rgba(255, 141, 137, 0.479), rgba(46, 46, 46, 0.05), rgba(255, 141, 137, 0.479));
+}
+
+.nav-btn.next {
+    margin-left: auto; /* "толкает" кнопку вправо */
+}
+
+.second-page .dropdown-content a:hover {
+    background: #c1f5ff82;
+    color: rgb(46,46,46);
+}
+
+.second-page .dropdown-toggle:hover {
+    background: #c1f5ff82;
+    color: rgb(27,71,45);
+    cursor: pointer;
+}
+
+.second-page .frame-btn:hover {
+    background: #c1f5ff82; /* лёгкий эффект при наведении */
+}
+
+
+.two-page .dropdown-content a:hover {
+    background: #ecc1ff82;
+    color: rgb(46,46,46);
+}
+
+.two-page .dropdown-toggle:hover {
+    background: #ecc1ff82;
+    color: rgb(27,71,45);
+    cursor: pointer;
+}
+
+.two-page .frame-btn:hover {
+    background: #ecc1ff82; /* лёгкий эффект при наведении */
+}
+
+.four-page .dropdown-content a:hover {
+    background: #fcffc182;
+    color: rgb(46,46,46);
+}
+
+.four-page .dropdown-toggle:hover {
+    background: #fcffc182;
+    color: rgb(27,71,45);
+    cursor: pointer;
+}
+
+.four-page .frame-btn:hover {
+    background: #fcffc182; /* лёгкий эффект при наведении */
+}
+
+
+.red-page .dropdown-content a:hover {
+    background: #ff919179;
+    color: rgb(46,46,46);
+}
+
+.red-page .dropdown-toggle:hover {
+    background: #ff919179;
+    color: rgb(27,71,45);
+    cursor: pointer;
+}
+
+.red-page .frame-btn:hover {
+    background: #ff919179; /* лёгкий эффект при наведении */
+}
+
+.uzdevumi-page .frame-buttons.right {
+    right: -200px;   /* двигай + или - */
+}
+
+.uzdevumi-page .frame-buttons.right .side-image {
+    transform: translateX(26px);
+}
+
+.uzdevumi-page .frame-buttons.right .dropdown-content {
+    right: -28px;
+    left: auto;
+}
+
+.uzdevumi-page .frame-btn {
+    min-width: 140px;
+    padding: 6px 20px;
+}
