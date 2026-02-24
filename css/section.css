@@ -339,8 +339,8 @@ img{
 }
 
 .section-navigation.first-page::before {
-    left: 75px;
-    right: 250px;
+    left: 275px;
+    right: 245px;
 }
 .section-navigation.first-page .nav-btn.next {
     margin-right: 45px; /* "толкает" кнопку вправо */
@@ -390,12 +390,21 @@ img{
 }
 
 .section-navigation.red-page .nav-btn.back {
-    margin-left: 45px; /* "толкает" кнопку вправо */
+    margin-left: 260px; /* "толкает" кнопку вправо */
 }
 
 .section-navigation.red-page::before {
-    left: 285px;
-    right: 245px !important;
+    left: 500px;
+    right: 300px !important;
+}
+
+.section-navigation.paga-page .nav-btn.next {
+    margin-left: 980px !important; /* "толкает" кнопку вправо */
+}
+
+.section-navigation.paga-page::before {
+    left:280px;
+    right: 500px !important;
 }
 
 
@@ -990,4 +999,190 @@ img{
     padding: 20px;
     margin: 30px 0;
     border-radius: 12px;
+}
+
+
+
+/* =============================== */
+/* Biežākās kļūdas */
+/* =============================== */
+
+.kludas-page .theory-content {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 70px auto;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgb(45,45,45);
+}
+
+.kludas-page .page-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.kludas-page .page-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: rgb(90,90,90);
+}
+
+.kludas-page h2 {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.kludas-page h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.kludas-page .info-box {
+    background: rgba(46,125,90,0.07);
+    border-left: 4px solid rgb(46,125,90);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.kludas-page .mistake-box {
+    background: rgba(200,0,0,0.07);
+    border-left: 4px solid rgb(170,0,0);
+    padding: 12px 18px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.kludas-page .correct-box {
+    background: rgba(27,125,60,0.08);
+    border-left: 4px solid rgb(27,125,60);
+    padding: 12px 18px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.kludas-page .summary-box {
+    background: rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.kludas-page .tips-box {
+    background: rgba(46,125,90,0.05);
+    border: 2px solid rgb(46,125,90);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.kludas-page .top-frame h2{
+    top: -40px;
+}
+
+.kludas-page .top-frame p{
+    margin-top: -40px !important;
+}
+
+
+/* =============================== */
+/* Citi risinājumi page */
+/* =============================== */
+
+.citi-page .theory-content {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 70px auto;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgb(45,45,45);
+}
+
+.citi-page h2 { margin-top: 60px; margin-bottom: 20px; font-size: 24px; }
+.citi-page h3 { margin-top: 30px; margin-bottom: 10px; }
+
+.citi-page .info-box {
+    background: rgba(46,125,90,0.07);
+    border-left: 4px solid rgb(46,125,90);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.citi-page .correct-box {
+    background: rgba(27,125,60,0.08);
+    border-left: 4px solid rgb(27,125,60);
+    padding: 12px 18px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.citi-page .summary-box {
+    background: rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.citi-page .tips-box {
+    background: rgba(46,125,90,0.05);
+    border: 2px solid rgb(46,125,90);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.citi-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.citi-page th, 
+.citi-page td {
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.citi-page th {
+    background: rgba(46,125,90,0.08);
+}
+
+.citi-page .wrapper::before {
+    content: '';
+    position: absolute;
+    top: 18px;       /* отступ сверху */
+    left: 270px;      /* отступ слева */
+    right: 270px;     /* отступ справа */
+    bottom: auto;     /* не тянем вниз до футера */
+    height: calc(100% - 30px); /* высота wrapper минус высота футера */
+    border: 1px solid #111; 
+    border-radius: 15px;
+    pointer-events: none;
+    box-shadow: 0 0 20px #11111199; 
+    z-index: 1;
+}
+
+.kludas-page .wrapper::before {
+    content: '';
+    position: absolute;
+    top: 18px;       /* отступ сверху */
+    left: 270px;      /* отступ слева */
+    right: 270px;     /* отступ справа */
+    bottom: auto;     /* не тянем вниз до футера */
+    height: calc(100% - 30px); /* высота wrapper минус высота футера */
+    border: 1px solid #111; 
+    border-radius: 15px;
+    pointer-events: none;
+    box-shadow: 0 0 20px #11111199; 
+    z-index: 1;
 }
