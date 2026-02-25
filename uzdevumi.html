@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Skaitļu attiecība</title>
-    <link rel="stylesheet" href="css/section.css">
+    <link rel="stylesheet" href="css/uzdevumi.css">
 </head>
 <body class="uzdevumi-page">
         <div class="top-frame">
@@ -16,23 +16,16 @@
 
             <!-- Заголовок -->
             <div class="frame-content">
-                <h2>Uzdevumi</h2>
+                <h2>Vai tu vari atrisināt visus 10?</h2>
                 <p class="topic-description">
-                    Šeit vari pārbaudīt savas zināšanas un nostiprināt prasmes.
+                    
                 </p>
             </div>
 
             <!-- Правая кнопка -->
             <div class="frame-buttons right">
                 <div class="dropdown">
-                    <a href="#" class="frame-btn dropdown-toggle">Teorija</a>
-                    <div class="dropdown-content">
-                        <a href="skaitlu-attieciba.html">Skaitļu attiecība</a>
-                        <a href="prop-definicija.html">Proporcijas definīcija un pamatīpašība</a>
-                        <a href="prop-nezinamais.html">Proporcijas nezināmā locekļa aprēķināšana</a>
-                        <a href="prop-procenti.html">Proporciju izmantošana procentu uzdevumos</a>
-                        <a href="sakaribas.html">Sakarības starp lielumiem</a>
-                    </div>
+                    <a href="testi.html" class="frame-btn">Testi</a>
                 </div>
                 <img src="img/testi.png" class="side-image">
             </div>
@@ -41,11 +34,546 @@
         <div class="wrapper">
             <div class="side-stripe left"></div>
             <div class="side-stripe right"></div>
-            <p style="text-align:center; color: rgb(0, 0, 0); padding: 20px 0; font-size:14px;">
-                ...
-            </p>
+                        <!-- выбор сложности -->
+                        <div id="difficulty-screen" class="uzdevumi-center">
+                            
+                                <h3 class="difficulty-title">Izvēlies grūtības pakāpi</h3>
+                            <button class="frame-btn difficulty-btn" data-diff="easy">Viegls</button>
+                            <button class="frame-btn difficulty-btn" data-diff="medium">Vidējs</button>
+                            <button class="frame-btn difficulty-btn" data-diff="hard">Grūts</button>
+                            <button class="frame-btn difficulty-btn" data-diff="mixed">Jaukti</button>
+                            <button class="frame-btn random-btn">🤔 Nejauša grūtība</button>
+
+                        </div>
+
+                    <div id="task-frame" class="task-frame" style="display:none;">
+                        <!-- экран задания -->
+                        <div id="quiz-screen">
+                                <button class="frame-btn" id="cancel-btn">Atcelt</button>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+
+                            <div class="progress-text" id="progress-text"></div>
+
+                            <div class="question" id="question"></div>
+
+                            <div id="answers"></div>
+
+                            <input class="pan" type="text" id="input-answer" style="display:none;" placeholder="Ievadi atbildi">
+
+                            <div class="quiz-buttons">
+
+                                <div class="quiz-left">
+                                    <button class="frame-btn" id="theory-btn">Skatīt teoriju</button>
+                                </div>
+
+                                <div class="quiz-center">
+                                    <button class="frame-btn" id="check-btn">Pārbaudīt</button>
+                                    <button class="frame-btn pup-btn" id="retry-btn" style="display:none;">Mēģināt vēlreiz</button>
+                                </div>
+
+                                <div class="quiz-right">
+                                    <button class="frame-btn" id="next-btn" style="display:none;">Nākamais →</button>
+                                </div>
+
+                            </div>
+
+                            <div id="result"></div>
+
+                        </div>
+
+                        <!-- финальный экран -->
+                        <div id="final-screen">
+
+                            <h3 id="final-score"></h3>
+
+                            <button class="frame-btn gara-btn" onclick="location.reload()">
+                                Mēģināt vēlreiz
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wave-separator">
+
+                        <!-- нижняя волна (инвертированная копия) -->
+                        <svg class="wave-bottom" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                            <path d="M0,40 
+                                    C120,80 240,0 360,30 
+                                    C480,60 600,20 720,40 
+                                    C840,60 960,20 1080,35 
+                                    C1200,50 1320,30 1440,40 
+                                    L1440,0 L0,0 Z">
+                            </path>
+                        </svg>
+
+                        <!-- верхняя волна -->
+                        <svg class="wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                            <path d="M0,40 
+                                    C120,80 240,0 360,30 
+                                    C480,60 600,20 720,40 
+                                    C840,60 960,20 1080,35 
+                                    C1200,50 1320,30 1440,40 
+                                    L1440,0 L0,0 Z">
+                            </path>
+                        </svg>
+
+                    </div>
+
+
+
+                    <div id="themes-section">
+
+                        <!-- ===== ТЕМА 1 ===== -->
+                        <div class="theme-card">
+
+                            <div class="theme-header">
+                                <div class="theme-title">
+                                    📘 <strong>1. Skaitļu attiecība</strong><br>
+                                </div>
+                                <div class="theme-toggle">▼</div>
+                            </div>
+
+                            <div class="theme-content">
+
+                                <!-- ===== ТВОЁ ЗАДАНИЕ УЖЕ ТУТ ===== -->
+                                <div class="problem-card">
+
+                                    <div class="problem-header">
+                                        <div class="problem-title">
+                                            <strong>Uzdevums 1.</strong><br>
+                                            Uzzīmē 6 cm garu nogriezni AC.  
+                                            Atliec uz tā punktu D tā, lai tas nogriezni sadalītu attiecībā <b>2 : 4</b>.
+                                        </div>
+
+                                        <div class="toggle-btn">▼</div>
+                                    </div>
+
+                                    <div class="problem-content">
+
+                                        <!-- 📷 КАРТИНКА УСЛОВИЯ -->
+                                        <div class="img-block">
+                                            <p class="img-title">Nogrieznis AC (nosacījums)</p>
+                                            <img src="img/uzd1_start.png" alt="Nogrieznis AC">
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>1. solis.</strong> Uzzīmē nogriezni AC ar garumu 6 cm.
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>2. solis.</strong> Saskaiti attiecības daļas:  
+                                            2 + 4 = 6 daļas.
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>3. solis.</strong> Aprēķini vienas daļas garumu:  
+                                            6 cm : 6 = 1 cm.
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>4. solis.</strong> Aprēķini posmus:
+                                            <ul>
+                                                <li>AD = 2 × 1 cm = <b>2 cm</b></li>
+                                                <li>DC = 4 × 1 cm = <b>4 cm</b></li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- 📷 КАРТИНКА РЕШЕНИЯ -->
+                                        <div class="img-block">
+                                            <p class="img-title">Risinājuma shēma</p>
+                                            <img src="img/uzd1_solution.png" alt="Risinājums">
+                                        </div>
+
+                                        <div class="solution-answer">
+                                            ✅ <strong>Atbilde:</strong><br>
+                                            Punkts D atrodas 2 cm no punkta A un 4 cm no punkta C.
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- ===== ТЕМА 2 ===== -->
+                        <div class="theme-card">
+
+                                <div class="theme-header">
+                                    <div class="theme-title">
+                                        📗 <strong>2. Proporcijas definīcija un pamatīpašība</strong>
+                                    </div>
+                                    <div class="theme-toggle">▼</div>
+                                </div>
+
+                                <div class="theme-content">
+
+                                    <div class="problem-card">
+
+                                        <div class="problem-header">
+
+                                            <div class="problem-title">
+                                                <strong>Uzdevums 1.</strong><br>
+                                                Atrisini proporciju:
+
+                                                <span class="fraction"><span class="top">x</span><span class="bottom">4</span></span> = <span class="fraction"><span class="top">6</span><span class="bottom">8</span></span>
+
+                                            </div>
+
+                                            <div class="toggle-btn">▼</div>
+
+                                        </div>
+
+
+                                        <div class="problem-content">
+
+                                            <div class="solution-step">
+                                                <strong>1. solis.</strong>
+                                                Izmanto proporcijas pamatīpašību — reizinām pa diagonāli:
+                                                <br><br>
+
+                                                x · 8 = 4 · 6
+                                            </div>
+
+
+                                            <div class="solution-step">
+                                                <strong>2. solis.</strong>
+                                                Sareizinām skaitļus:
+                                                <br><br>
+
+                                                x · 8 = 24
+                                            </div>
+
+
+                                            <div class="solution-step">
+                                                <strong>3. solis.</strong>
+                                                Dalām abas puses ar 8:
+                                                <br><br>
+
+                                                x =
+                                                <span class="fraction">
+                                                    <span class="top">24</span>
+                                                    <span class="bottom">8</span>
+                                                </span>
+                                            </div>
+
+
+                                            <div class="solution-step">
+                                                <strong>4. solis.</strong>
+                                                Vienkāršojam:
+                                                <br><br>
+
+                                                x = 3
+                                            </div>
+
+
+                                            <div class="solution-answer">
+                                                ✅ <strong>Atbilde:</strong> x = 3
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        
+
+                        <!-- ===== ТЕМА 3 ===== -->
+                        <div class="theme-card">
+                            <div class="theme-header">
+                                <div class="theme-title">
+                                    📙 <strong>3. Proporcijas nezināmā locekļa aprēķināšana</strong>
+                                </div>
+                                <div class="theme-toggle">▼</div>
+                            </div>
+
+                            <div class="theme-content">
+
+                                <div class="problem-card">
+
+                                    <div class="problem-header">
+
+                                        <div class="problem-title">
+                                            <strong>Uzdevums 1.</strong><br>
+                                            Atrisini proporciju:
+                                            <br><br>
+
+                                            <span class="fraction">
+                                                <span class="top">5</span>
+                                                <span class="bottom">x</span>
+                                            </span>
+
+                                            =
+
+                                            <span class="fraction">
+                                                <span class="top">15</span>
+                                                <span class="bottom">9</span>
+                                            </span>
+
+                                        </div>
+
+                                        <div class="toggle-btn">▼</div>
+
+                                    </div>
+
+                                    <div class="problem-content">
+
+                                        <div class="solution-step">
+                                            <strong>1. solis.</strong><br>
+                                            Atceramies proporcijas pamatīpašību:<br>
+                                            <em>krustreizinājumi ir vienādi.</em>
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>2. solis.</strong><br>
+                                            Sareizinām pa diagonāli:<br><br>
+
+                                            5 · 9 = 15 · x
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>3. solis.</strong><br>
+                                            Sareizinām zināmos skaitļus:<br><br>
+
+                                            45 = 15x
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>4. solis.</strong><br>
+                                            Lai atrastu x, dalām abas puses ar 15:<br><br>
+
+                                            x =
+                                            <span class="fraction">
+                                                <span class="top">45</span>
+                                                <span class="bottom">15</span>
+                                            </span>
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>5. solis.</strong><br>
+                                            Aprēķinām rezultātu:<br><br>
+
+                                            x = 3
+                                        </div>
+
+                                        <div class="solution-answer">
+                                            ✅ <strong>Atbilde:</strong><br>
+                                            x = 3
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- ===== ТЕМА 4 ===== -->
+                        <div class="theme-card">
+                            <div class="theme-header">
+                                <div class="theme-title">
+                                    📕 <strong>4. Proporciju izmantošana procentu uzdevumos</strong>
+                                </div>
+                                <div class="theme-toggle">▼</div>
+                            </div>
+
+                            <div class="theme-content">
+
+                                <div class="problem-card">
+
+                                    <div class="problem-header">
+
+                                        <div class="problem-title">
+                                            <strong>Uzdevums 1.</strong><br>
+                                            Klasē ir 24 skolēni.  
+                                            25% no skolēniem piedalās matemātikas pulciņā.  
+                                            Cik skolēni piedalās matemātikas pulciņā?
+                                        </div>
+
+                                        <div class="toggle-btn">▼</div>
+
+                                    </div>
+
+                                    <div class="problem-content">
+
+                                        <div class="solution-step">
+                                            <strong>1. solis.</strong><br>
+                                            Zinām, ka:<br>
+                                            100% atbilst 24 skolēniem<br>
+                                            25% atbilst x skolēniem
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>2. solis.</strong><br>
+                                            Izveidojam proporciju:
+                                            <br><br>
+
+                                            <span class="fraction">
+                                                <span class="top">x</span>
+                                                <span class="bottom">24</span>
+                                            </span>
+
+                                            =
+
+                                            <span class="fraction">
+                                                <span class="top">25</span>
+                                                <span class="bottom">100</span>
+                                            </span>
+
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>3. solis.</strong><br>
+                                            Sareizinām pa diagonāli:<br><br>
+
+                                            x · 100 = 24 · 25
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>4. solis.</strong><br>
+                                            Sareizinām skaitļus:<br><br>
+
+                                            x · 100 = 600
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>5. solis.</strong><br>
+                                            Dalām abas puses ar 100:<br><br>
+
+                                            x =
+                                            <span class="fraction">
+                                                <span class="top">600</span>
+                                                <span class="bottom">100</span>
+                                            </span>
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>6. solis.</strong><br>
+                                            Aprēķinām rezultātu:<br><br>
+
+                                            x = 6
+                                        </div>
+
+                                        <div class="solution-answer">
+                                            ✅ <strong>Atbilde:</strong><br>
+                                            Matemātikas pulciņā piedalās 6 skolēni.
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== ТЕМА 5 ===== -->
+                        <div class="theme-card">
+                            <div class="theme-header">
+                                <div class="theme-title">
+                                    📓 <strong>5. Sakarības starp lielumiem</strong>
+                                </div>
+                                <div class="theme-toggle">▼</div>
+                            </div>
+
+                            <div class="theme-content">
+
+                                <div class="problem-card">
+
+                                    <div class="problem-header">
+
+                                        <div class="problem-title">
+                                            <strong>Uzdevums 1.</strong><br>
+                                            3 burtnīcas maksā 6 eiro.  
+                                            Cik maksā 5 burtnīcas, ja cena par vienu burtnīcu ir vienāda?
+                                        </div>
+
+                                        <div class="toggle-btn">▼</div>
+
+                                    </div>
+
+                                    <div class="problem-content">
+
+                                        <div class="solution-step">
+                                            <strong>1. solis.</strong><br>
+                                            Izveidojam tabulu ar lielumiem:<br><br>
+
+                                            3 burtnīcas → 6 eiro<br>
+                                            5 burtnīcas → x eiro
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>2. solis.</strong><br>
+                                            Redzam, ka tas ir tieši proporcionāls lielums,  
+                                            jo vairāk burtnīcu, jo lielāka cena.
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>3. solis.</strong><br>
+                                            Izveidojam proporciju:
+                                            <br><br>
+
+                                            <span class="fraction">
+                                                <span class="top">3</span>
+                                                <span class="bottom">5</span>
+                                            </span>
+
+                                            =
+
+                                            <span class="fraction">
+                                                <span class="top">6</span>
+                                                <span class="bottom">x</span>
+                                            </span>
+
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>4. solis.</strong><br>
+                                            Sareizinām pa diagonāli:<br><br>
+
+                                            3 · x = 5 · 6
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>5. solis.</strong><br>
+                                            Sareizinām skaitļus:<br><br>
+
+                                            3x = 30
+                                        </div>
+
+                                        <div class="solution-step">
+                                            <strong>6. solis.</strong><br>
+                                            Dalām abas puses ar 3:<br><br>
+
+                                            x = 10
+                                        </div>
+
+                                        <div class="solution-answer">
+                                            ✅ <strong>Atbilde:</strong><br>
+                                            5 burtnīcas maksā 10 eiro.
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
         </div>
 
-    <script src="script2.js"></script>
+    <script src="uzdevumi.js"></script>
 </body>
 </html>

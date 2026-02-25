@@ -1,0 +1,788 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,800;1,400&display=swap');
+
+/* ===== базовый reset ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: rgb(0,0,0);
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ===== wrapper ===== */
+
+.wrapper {
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+    width: 100%;
+    position: relative;
+    
+}
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 200px;
+    right: 200px;
+    height: calc(100% - 30px);
+    border: 1px solid #111;
+    border-radius: 15px;
+    pointer-events: none;
+    box-shadow: 0 0 20px #11111199;
+    z-index: 1;
+}
+
+
+/* ===== top frame ===== */
+
+.top-frame {
+    position: relative;
+    width: 55%;
+    max-width: 750px;
+    margin: 60px auto 40px auto;
+    padding: 25px 40px;
+    text-align: center;
+}
+
+.top-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #111;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #11111199;
+    pointer-events: none;
+}
+
+.top-frame h2 {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 22px;
+    color: rgb(35,35,35);
+    padding: 0 10px;
+}
+
+.top-frame h2::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid rgba(0,0,0,0.6);
+    border-left: 2px solid rgba(0,0,0,0.6);
+    border-top-left-radius: 15px;
+}
+
+.top-frame h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    border-right: 2px solid rgba(0,0,0,0.6);
+    border-bottom-right-radius: 15px;
+}
+
+
+/* ===== description ===== */
+
+.topic-description {
+    margin: 20px auto 0 auto;
+    max-width: 75%;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgb(70,70,70);
+}
+
+
+/* ===== buttons ===== */
+
+.frame-btn {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(46,46,46);
+    background: transparent;
+    border: 1px solid rgb(46,46,46);
+    border-radius: 10px;
+    text-align: center;
+    width: 180px;
+    transition: all 0.3s ease;
+}
+
+.frame-btn:hover {
+    cursor: pointer;
+    background: #ffd1c189;
+    transform: scale(1.05);
+    color: #482f21;
+}
+
+
+/* ===== frame buttons positioning ===== */
+
+.frame-buttons {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 3;
+    align-items: center;
+}
+
+.frame-buttons.left {
+    left: -250px;
+}
+
+.frame-buttons.right {
+    right: -250px;
+}
+
+
+/* ===== side images ===== */
+
+.side-image {
+    width: 206px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.side-image:hover {
+    transform: scale(1.01);
+}
+
+.dropdown.active + .side-image {
+    display: none;
+}
+
+
+/* центрирование всего контента */
+.uzdevumi-center,
+#quiz-screen,
+#final-screen {
+
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+
+/* вопрос */
+.question{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 35px 0 25px 0;
+}
+
+
+/* ответы (multiple choice) */
+.answer-btn {
+
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+
+    border: 1px solid #333;
+    border-radius: 10px;
+
+    background: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.answer-btn:hover {
+
+    background: #ffe0d6;
+}
+
+
+/* input */
+#input-answer {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    margin-top: 30px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    max-width: 320px; 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+.quiz-buttons{
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+/* левая зона */
+.quiz-left{
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* центр */
+.quiz-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;   /* расстояние между Теорией и Проверить */
+}
+
+/* правая зона */
+.quiz-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ===== ИЕРАРХИЯ КНОПОК ===== */
+
+/* Atcelt — маленькая, красная, слева */
+#cancel-btn{
+    width: 100px;
+    font-size: 12px;
+    padding: 6px 0;
+    background: #f5eaea99;
+    border: 1px solid #b84c4cc4;
+    color: #8b2f2fac;
+    border-radius: 10px;
+    margin-right: 630px;
+    font-family: "Poppins", sans-serif;
+}
+
+#cancel-btn:hover{
+    background:#f0dada;
+}
+
+/* Pārbaudīt — главная кнопка */
+#check-btn{
+    width: 180px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    background: #4e965952;
+    color: #000000b1;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.292);;
+    border: 1px solid #3f7a48;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#check-btn:hover{
+    background: #559a5fae;
+    box-shadow: 5px 1px 7px rgba(31, 103, 59, 0.575);
+}
+
+/* Teorija — вторичная кнопка */
+#theory-btn{
+    width: 100px;
+    padding: 3px 0;
+    font-size: 10px;
+    background: #eaf5ffc6;
+    border: 1px solid #b8bfca;
+    color: #1b2b32df;
+    border-radius: 12px;
+    margin-left: 135px;
+    height: 30px;
+    font-family: "Poppins", sans-serif;
+}
+
+#theory-btn:hover{
+    box-shadow: 5px 1px 7px rgba(224, 246, 255, 0.514);
+}
+
+.gara-btn {
+    font-family: "Poppins", sans-serif;
+    background-color: #4e965923;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.186);
+}
+
+.pup-btn{
+    font-family: "Poppins", sans-serif;
+    background-color: #4e965923;
+    font-size: 16px;
+    color:#25482add;
+    box-shadow: 1px 1px 20px rgba(20, 93, 49, 0.389);
+}
+
+.pup-btn:hover{
+     background-color: #4e965952 !important;
+}
+
+/* Nākamais — навигация */
+#next-btn{
+    width: 100px;
+    padding: 4px 0;
+    font-size: 10px;
+    background: #fff6e186;
+    border: 1px solid #999;
+    color: #222222da;
+    border-radius: 10px;
+    margin-right: 140px;
+    height: 25px;
+    font-family: "Poppins", sans-serif;
+}
+
+#next-btn:hover{
+    background:#eaeaea;
+}
+
+
+/* progress bar */
+.progress-bar {
+
+    width: 100%;
+    height: 14px;
+
+    background: #eee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin: 20px 0;
+}
+
+.progress-fill {
+
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(90deg,#ffb089,#ff7a50);
+
+    transition: 0.4s;
+}
+
+
+/* текст прогресса */
+.progress-text {
+
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+/* результат */
+#result {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#difficulty-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+}
+
+
+/* экран сложности */
+#difficulty-screen button {
+    margin: 10px;
+    width: 320px;
+    padding: 10px 0;
+    font-size: 16px;
+    border-radius: 12px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.421);
+    background: rgba(211, 211, 211, 0.268);
+    margin-top: -10px;
+}
+
+
+.difficulty-btn {
+    border-left: 6px solid transparent;
+}
+
+.difficulty-btn[data-diff="easy"] { border-left-color: #66bb6a;}
+.difficulty-btn[data-diff="medium"] { border-left-color: #ffb74d; }
+.difficulty-btn[data-diff="hard"] { border-left-color: #e57373; }
+.difficulty-btn[data-diff="mixed"] { border-left-color: #64b5f6; }
+
+/* Заголовок выбора сложности */
+
+.difficulty-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 45px;     /* ← опускает вниз */
+    margin-bottom: 10px;
+    color: rgb(40,40,40);}
+
+
+    /* ===== Dynamic quiz themes ===== */
+
+body.theme-easy {
+    --accent: #66bb6a;
+    --accent-soft: #e8f5e9;
+}
+
+body.theme-medium {
+    --accent: #ffb74d;
+    --accent-soft: #fff8e1;
+}
+
+body.theme-hard {
+    --accent: #e57373;
+    --accent-soft: #ffebee;
+}
+
+body.theme-mixed {
+    --accent: #64b5f6;
+    --accent-soft: #e3f2fd;
+}
+
+
+
+/* Применение темы */
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--accent), var(--accent));
+}
+
+.answer-btn:hover {
+    background: var(--accent-soft);
+}
+
+.correct {
+    color: var(--accent);
+}
+
+.frame-btn:hover {
+    background: var(--accent-soft);
+    color: #222;
+}
+
+body {
+    transition: background 0.4s ease, color 0.3s ease;
+}
+
+
+.task-frame{
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 35px 40px;
+    border-radius: 20px;
+    border: 1px solid #111;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    position: relative;
+    animation: fadeIn 0.4s ease;
+    top: 100px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform: translateY(15px);}
+    to{opacity:1; transform: translateY(0);}
+}
+
+
+.answer-btn.selected{
+    background: #ffd1c1;
+    border: 2px solid #ff7a50;
+    box-shadow: 0 0 10px rgba(255,122,80,0.5);
+    transform: scale(1.02);
+}
+
+.wave-separator{
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 130px;
+    padding: 0 200px;   /* 🔥 отступы слева и справа */
+    box-sizing: border-box;
+}
+
+.wave-separator svg{
+    width: 100%;
+    height: 60px;
+    display: block;
+}
+
+.wave-separator path {
+    fill: #e9ddd275;  /* цвет полосы (не яркий, серьёзный стиль) */
+}
+
+.pan{
+    font-family: "Poppins", sans-serif;
+}
+
+#problems-section{
+    max-width: calc(100% - 450px);
+    margin: 0 auto;
+    padding: 40px 40px;
+    background: transparent;
+    border-radius: 0 0 15px 15px;
+}
+
+.problems-title{
+    font-size: 26px;
+    margin-bottom: 25px;
+    color:#222;
+}
+
+.problem-card{
+    background: #ffffff;
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    margin-bottom:25px;
+    overflow:hidden;
+    border:1px solid #e5e5e5;
+}
+
+.problem-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 22px;
+    cursor:pointer;
+    background: transparent;
+}
+
+.problem-title{
+    font-size:16px;
+    color:#111;
+    line-height:1.5;
+    max-width:90%;
+}
+
+.toggle-btn{
+    font-size:18px;
+    transition:0.3s;
+    user-select:none;
+}
+
+.problem-card.active .toggle-btn{
+    transform:rotate(180deg);
+}
+
+.problem-content{
+    max-height:0;
+    overflow:hidden;
+    transition:0.5s ease;
+    padding:0 22px;
+}
+
+.problem-card.active .problem-content{
+    max-height:2000px;
+    padding: 22px 32px 28px;
+    background: linear-gradient(180deg,#ffffff,#fafafa);
+    border-top: 1px solid #e5e5e5;
+}
+
+/* шаги */
+.solution-step{
+    margin-bottom:12px;
+    font-size:15px;
+    color:#333;
+}
+
+/* ответ */
+.solution-answer{
+    margin-top:15px;
+    padding:12px 14px;
+    background:#eef6f1;
+    border-left:4px solid #3a7f5d;
+    border-radius:6px;
+    font-size:15px;
+}
+
+/* 🖼 блок картинки */
+.img-block{
+    margin:15px 0;
+    text-align:center;
+}
+
+.img-title{
+    font-size:13px;
+    color:#555555;
+    margin-bottom:6px;
+}
+
+.img-block img{
+    max-width:40%;
+    border-radius:10px;
+    border:1px solid #ddd;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+/* ===== THEMES SECTION ===== */
+
+#themes-section{
+    max-width: calc(100% - 450px);
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+}
+
+/* карточка темы */
+.theme-card{
+    background:#ffffff;
+    border-radius:16px;
+    border:1px solid #e5e5e5;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+/* header темы */
+.theme-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 22px;
+    cursor:pointer;
+}
+
+.theme-title{
+    font-size:17px;
+    color:#111;
+}
+
+/* стрелка */
+.theme-toggle{
+    font-size:18px;
+    transition:0.3s;
+    user-select:none;
+}
+
+/* вращение стрелки */
+.theme-card.active .theme-toggle{
+    transform:rotate(180deg);
+}
+
+/* контент темы */
+.theme-content{
+    max-height:0;
+    overflow:hidden;
+    transition:0.5s ease;
+    padding:0 22px;
+}
+
+/* когда тема открыта */
+.theme-card.active .theme-content{
+    max-height:3000px;
+    padding:20px 22px 25px;
+    border-top:1px solid #e5e5e5;
+    background:linear-gradient(180deg,#ffffff,#fafafa);
+}
+
+
+/* ===== THEMES ANIMATION ===== */
+
+.theme-content{
+    height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-8px);
+    transition:
+        height 0.45s cubic-bezier(.4,0,.2,1),
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.theme-card.active .theme-content{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* стрелка */
+.theme-toggle{
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+.theme-card.active .theme-toggle{
+    transform:rotate(180deg);
+}
+
+
+/* ===== PROBLEM ANIMATION ===== */
+
+.problem-content{
+    height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-6px);
+    transition:
+        height 0.4s cubic-bezier(.4,0,.2,1),
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.problem-card.active .problem-content{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.toggle-btn{
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+.problem-card.active .toggle-btn{
+    transform:rotate(180deg);
+}
+
+
+/* лёгкий hover эффект */
+.theme-card,
+.problem-card{
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-card:hover,
+.problem-card:hover{
+    transform: translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 2px;
+}
+
+.fraction .top {
+    border-bottom: 2px solid #000;
+    padding: 0 6px 2px 6px;
+}
+
+.fraction .bottom {
+    padding: 2px 6px 0 6px;
+}
