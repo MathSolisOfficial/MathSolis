@@ -641,11 +641,14 @@ function finish(){
 
 /* ===================== ОТМЕНА ===================== */
 
-document.getElementById("cancel-btn").onclick=()=>{
+/*document.getElementById("cancel-btn").onclick=()=>{
     document.getElementById("quiz-screen").style.display="none";
     document.getElementById("final-screen").style.display="none";
     document.getElementById("task-frame").style.display="none";
     document.getElementById("difficulty-screen").style.display="block";
+};*/
+document.getElementById("cancel-btn").onclick = () => {
+    location.reload();
 };
 
 document.getElementById("retry-btn").onclick = () => {
@@ -667,3 +670,61 @@ document.getElementById("retry-btn").onclick = () => {
 
     showQuestion();
 };
+
+
+
+
+
+/* ===================== THEORY PANEL ===================== */
+
+const theoryPanel = document.getElementById("theory-panel");
+const theoryFrame = document.getElementById("theory-frame");
+
+// 🔥 открыть теорию (ВСЕГДА первая страница)
+document.getElementById("theory-btn").onclick = () => {
+    theoryFrame.src = ""; // сброс
+    theoryFrame.src = "skaitlu-attieciba1.html";
+    theoryPanel.style.height = "50%";
+};
+
+// ❌ закрыть
+document.getElementById("close-theory").onclick = () => {
+    theoryPanel.style.height = "0";
+};
+
+/* ===================== DRAG / RESIZE ===================== */
+const resizer = document.getElementById("theory-resizer");
+
+let isDragging = false;
+
+resizer.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    isDragging = true;
+
+    // отключаем выделение текста и iframe чтобы drag был плавным
+    document.body.style.userSelect = "none";
+    theoryFrame.style.pointerEvents = "none"; 
+});
+
+window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    // высота панели = расстояние от верхнего края окна до курсора
+    let newHeight = window.innerHeight - e.clientY;
+
+    // ограничения по минимальной и максимальной высоте
+    if (newHeight < 120) newHeight = 120;
+    if (newHeight > window.innerHeight * 0.9)
+        newHeight = window.innerHeight * 0.9;
+
+    theoryPanel.style.height = newHeight + "px";
+});
+
+window.addEventListener("mouseup", () => {
+    if (isDragging) {
+        isDragging = false;
+
+        document.body.style.userSelect = ""; 
+        theoryFrame.style.pointerEvents = "auto"; // возвращаем iframe кликабельным
+    }
+});
